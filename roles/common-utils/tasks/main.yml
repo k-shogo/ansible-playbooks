@@ -1,0 +1,8 @@
+---
+
+- name: install common utilities
+  sudo: yes
+  yum: name=$item state=present
+  with_items:
+    - wget
+    - curl
