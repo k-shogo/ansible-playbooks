@@ -2,5 +2,6 @@
   user: vagrant
   sudo: yes
   roles:
+    - {role: node }
     - { role: ruby }
     - { role: mysql/server }
