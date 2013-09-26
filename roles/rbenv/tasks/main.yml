@@ -1,12 +1,12 @@
 ---
 
-- name: git clone $rbenv_repo $rbenv_root
+- name: get rbenv $rbenv_repo
   sudo: yes
   git: >
     repo=$rbenv_repo
     dest=$rbenv_root
 
-- name: git clone $ruby_build_repo $rbenv_root/plugins/ruby-build
+- name: get ruby-build $ruby_build_repo
   sudo: yes
   git: >
     repo=$ruby_build_repo
