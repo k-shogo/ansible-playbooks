@@ -1,0 +1,46 @@
+---
+
+- name: download elasticseach file
+  sudo: no
+  shell: wget $elasticsearch_repo -O elasticsearch.zip
+
+- name: unzip elasticseach.zip
+  sudo: no
+  shell: unzip elasticsearch.zip
+
+- name: rm elasticsearch.zip
+  sudo: no
+  shell: rm elasticsearch.zip
+
+- name: mv elasticsearch root
+  sudo: yes
+  shell: mv elasticsearch-* $elasticsearch_root
+
+- name: download elasticseach servicewrapper
+  sudo: no
+  shell: wget $servicewrapper_repo -O servicewrapper.zip
+
+- name: unzip servicewrapper.zip
+  sudo: no
+  shell: unzip servicewrapper.zip
+
+- name: rm servicewrapper.zip
+  sudo: no
+  shell: rm servicewrapper.zip
+
+- name: mv servicewrapper
+  sudo: yes
+  shell: mv -f *servicewrapper*/service $elasticsearch_root/bin
+
+- name: rm servicewrapper
+  sudo: no
+  shell: rm -rf *servicewrapper*
+
+- name: elasticsearch service install
+  sudo: yes
+  shell: $elasticsearch_root/bin/service/elasticsearch install
+
+- name: elasticsearch start
+  sudo: yes
+  shell: /etc/init.d/elasticsearch start
+

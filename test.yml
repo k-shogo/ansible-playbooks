@@ -5,3 +5,4 @@
     - {role: node }
     - { role: ruby }
     - { role: mysql/server }
+    - { role: elasticsearch }

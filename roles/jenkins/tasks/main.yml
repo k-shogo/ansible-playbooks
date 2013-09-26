@@ -1,9 +1,4 @@
 ---
-# ansible playbook for installing jenkins
-
-- name: install jdk 1.7
-  yum: pkg=java-1.7.0-openjdk state=installed
-
 - name: download jenkins.repo
   get_url : >
     url=http://pkg.jenkins-ci.org/redhat/jenkins.repo

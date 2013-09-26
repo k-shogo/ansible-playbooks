@@ -1,0 +1,3 @@
+elasticsearch_root: /usr/local/elasticsearch
+elasticsearch_repo: https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.5.zip
+servicewrapper_repo: https://github.com/elasticsearch/elasticsearch-servicewrapper/archive/master.zip
