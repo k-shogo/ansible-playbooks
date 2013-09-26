@@ -1,0 +1,25 @@
+---
+
+- name: source rbenv.sh
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh
+
+- name: install ruby $ruby_version
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; rbenv install $ruby_version
+
+- name: rbenv global $ruby_version
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; rbenv global $ruby_version
+
+- name: rbenv rehash
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; rbenv rehash
+
+- name: install bundler
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; gem install bundler --no-ri --no-rdoc
+
+- name: rbenv rehash
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; rbenv rehash
