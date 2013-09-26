@@ -1,0 +1,4 @@
+---
+
+- name: install jdk 1.7
+  yum: pkg=java-1.7.0-openjdk state=installed
