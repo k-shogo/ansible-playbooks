@@ -1,0 +1,13 @@
+---
+
+- name: install Development tools
+  sudo: yes
+  yum: name=$item state=latest
+  with_items:
+    - make
+    - gcc
+    - gcc-c++
+    - zlib-devel
+    - openssl-devel
+    - readline-devel
+    - ncurses-devel

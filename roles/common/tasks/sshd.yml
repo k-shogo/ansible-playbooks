@@ -1,3 +1,0 @@
-- name: disable password authentication
-  lineinfile: dest=/etc/ssh/sshd_config regexp='^PasswordAuthentication' line='PasswordAuthentication no' owner=root group=root mode=0600
-  notify: restart sshd

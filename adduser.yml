@@ -1,7 +1,0 @@
----
-- hosts: all
-  user: vagrant
-  sudo: yes
-  tasks:
-    - name: ユーザーを追加
-      user: name=nginx

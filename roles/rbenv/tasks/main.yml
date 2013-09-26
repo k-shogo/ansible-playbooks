@@ -1,0 +1,43 @@
+---
+
+- name: rbenvをリポジトリから取得
+  sudo: yes
+  git: >
+    repo=$rbenv_repo
+    dest=$rbenv_root
+
+- name: ruby-buildをリポジトリから取得
+  sudo: yes
+  git: >
+    repo=$ruby_build_repo
+    dest=$rbenv_root/plugins/ruby-build
+
+- name: /etc/profile.d 以下に rbenv.shを配置
+  sudo: yes
+  template: >
+    src=rbenv.sh.j2
+    dest=/etc/profile.d/rbenv.sh
+
+- name: rbenv.shを読み込み
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh
+
+- name: ruby $ruby_version をインストール
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; rbenv install $ruby_version
+
+- name: ruby $ruby_version をglobalにセット
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; rbenv global $ruby_version
+
+- name: rbenv rehashの実行
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; rbenv rehash
+
+- name: bundlerのインストール
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; gem install bundler --no-ri --no-rdoc
+
+- name: rbenv rehashの実行
+  sudo: yes
+  shell: source /etc/profile.d/rbenv.sh; rbenv rehash
