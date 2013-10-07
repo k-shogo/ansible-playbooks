@@ -2,7 +2,8 @@
   user: vagrant
   sudo: yes
   roles:
-    - {role: node }
-    - { role: ruby }
-    - { role: mysql/server }
-    - { role: elasticsearch }
+    # - { role: node }
+    # - { role: ruby }
+    # - { role: mysql/server }
+    # - { role: elasticsearch }
+    - { role: nginx }
